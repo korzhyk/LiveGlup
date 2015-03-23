@@ -1,0 +1,22 @@
+{
+  "name": "LiveGulp",
+  "version": "0.0.1",
+  "authors": ["Andrii Korzh <Andrii.Korzh@gmail.com>"],
+  "repository": "https://github.com/korzhyk/LiveGlup",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-util": "*",
+    "gulp-exec": "*",
+    "gulp-concat": "*",
+    "gulp-uglify": "*",
+    "gulp-coffee": "*",
+    "gulp-jade": "*",
+    "gulp-stylus": "*",
+    "gulp-imagemin": "*",
+    "gulp-livereload": "*",
+    "gulp-plumber": "*",
+    "optipng-bin": "*",
+    "connect": "*",
+    "nib": "*"
+  }
+}
