@@ -47,7 +47,7 @@ gulp.task('images', function() {
 gulp.task('css', function () {
   gulp.src(paths.css)
     .pipe(plumber())
-    .pipe(stylus({ use: ['nib'], import: ['nib'] })).on('error', gutil.log)
+    .pipe(stylus({ use: nib(), import: 'nib' }).on('error', gutil.log))
     .pipe(gulp.dest(paths.dest + '/css'))
     .pipe(livereload());
 });
@@ -79,6 +79,7 @@ gulp.task('watch', ['connect'], function() {
   gulp.watch(paths.css, ['css']);
   gulp.watch(paths.jade, ['jade']);
   gulp.watch(paths.vendor, ['vendor']);
+
   livereload.listen();
 });
 
