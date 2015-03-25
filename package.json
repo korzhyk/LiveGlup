@@ -18,6 +18,7 @@
     "optipng-bin": "^2.0",
     "connect": "^3.3",
     "serve-static": "^1.9",
+    "mkdirp": "^0.5",
     "nib": "^1.1"
   }
 }

@@ -12,6 +12,7 @@ var imagemin   = require('gulp-imagemin');
 var exec       = require('gulp-exec');
 var livereload = require('gulp-livereload');
 var plumber    = require('gulp-plumber');
+var mkdirp     = require('mkdirp');
 
 var port = process.env.PORT || 5000;
 
@@ -73,8 +74,14 @@ gulp.task('connect', function(next) {
     });
 });
 
+gulp.task('mkdirs', function() {
+  mkdirp.sync('./src/css');
+  mkdirp.sync('./src/js');
+  mkdirp.sync('./src/images');
+});
+
 // Rerun the task when a file changes
-gulp.task('watch', ['connect'], function() {
+gulp.task('watch', ['mkdirs', 'connect'], function() {
   gulp.watch(paths.js, ['js']);
   gulp.watch(paths.images, ['images']);
   gulp.watch(paths.css, ['css']);
