@@ -22,12 +22,12 @@ var paths = {
   images: 'src/images/**/**',
   css: ['src/css/**/*.styl', '!src/css/**/_*.styl'],
   jade: 'src/*.jade',
-  vendor: 'src/vendor/**/**'
+  bower: 'src/bower_components/**/**'
 };
 
-gulp.task('vendor', function() {
-  return gulp.src(paths.vendor)
-    .pipe(gulp.dest(paths.dest + '/vendor'))
+gulp.task('bower', function() {
+  return gulp.src(paths.bower)
+    .pipe(gulp.dest(paths.dest + '/bower_components'))
     .pipe(livereload());
 });
 
@@ -78,6 +78,7 @@ gulp.task('mkdirs', function() {
   mkdirp.sync('./src/css');
   mkdirp.sync('./src/js');
   mkdirp.sync('./src/images');
+  mkdirp.sync('./src/bower_components');
 });
 
 // Rerun the task when a file changes
@@ -86,10 +87,10 @@ gulp.task('watch', ['mkdirs', 'connect'], function() {
   gulp.watch(paths.images, ['images']);
   gulp.watch(paths.css, ['css']);
   gulp.watch(paths.jade, ['jade']);
-  gulp.watch(paths.vendor, ['vendor']);
+  gulp.watch(paths.bower, ['bower']);
 
   livereload.listen();
   exec('sleep 1 && open http://localhost:' + port);
 });
 
-gulp.task('default', ['images', 'vendor', 'js', 'css', 'jade', 'watch']);
+gulp.task('default', ['images', 'bower', 'js', 'css', 'jade', 'watch']);
