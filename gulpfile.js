@@ -9,10 +9,10 @@ var uglify     = require('gulp-uglify');
 var jade       = require('gulp-jade');
 var stylus     = require('gulp-stylus');
 var imagemin   = require('gulp-imagemin');
-var exec       = require('gulp-exec');
 var livereload = require('gulp-livereload');
 var plumber    = require('gulp-plumber');
 var mkdirp     = require('mkdirp');
+var exec       = require('child_process').exec;
 
 var port = process.env.PORT || 5000;
 
@@ -89,6 +89,7 @@ gulp.task('watch', ['mkdirs', 'connect'], function() {
   gulp.watch(paths.vendor, ['vendor']);
 
   livereload.listen();
+  exec('sleep 1 && open http://localhost:' + port);
 });
 
 gulp.task('default', ['images', 'vendor', 'js', 'css', 'jade', 'watch']);
