@@ -17,8 +17,8 @@ var port = process.env.PORT || 5000;
 
 var paths = {
   dest: 'build',
-  js: ['src/js/**/*.coffee'],
-  images: 'src/img/**/*.{jpg,png,gif,svg}',
+  js: ['src/js/**/**'],
+  images: 'src/images/**/**',
   css: ['src/css/**/*.styl', '!src/css/**/_*.styl'],
   jade: 'src/*.jade',
   vendor: 'src/vendor/**/**'
@@ -32,7 +32,7 @@ gulp.task('vendor', function() {
 
 gulp.task('js', function() {
   return gulp.src(paths.js)
-    .pipe(coffee({ bare: true }).on('error', gutil.log))
+    .pipe(coffee({ bare: true }))
     .pipe(gulp.dest(paths.dest + '/js'))
     .pipe(livereload());
 });
@@ -40,21 +40,22 @@ gulp.task('js', function() {
 gulp.task('images', function() {
  return gulp.src(paths.images)
     .pipe(imagemin({ optimizationLevel: 5 }))
-    .pipe(gulp.dest(paths.dest + '/img'))
+    .pipe(gulp.dest(paths.dest + '/images'))
     .pipe(livereload());
 });
 
 gulp.task('css', function () {
   gulp.src(paths.css)
     .pipe(plumber())
-    .pipe(stylus({ use: nib(), import: 'nib' }).on('error', gutil.log))
+    .pipe(stylus({ use: nib(), import: 'nib' }))
     .pipe(gulp.dest(paths.dest + '/css'))
     .pipe(livereload());
 });
 
 gulp.task('jade', function() {
   return gulp.src(paths.jade)
-    .pipe(jade({ pretty: true }).on('error', gutil.log))
+    .pipe(plumber())
+    .pipe(jade({ pretty: true }))
     .pipe(gulp.dest(paths.dest))
     .pipe(livereload());
 });

@@ -16,7 +16,7 @@
     "gulp-livereload": "^3.8",
     "gulp-plumber": "^1.0",
     "optipng-bin": "^2.0",
-    "connect": "^3.3",    
+    "connect": "^3.3",
     "serve-static": "^1.9",
     "nib": "^1.1"
   }
