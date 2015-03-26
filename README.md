@@ -7,9 +7,7 @@
 * coffee - препроцесор для js
 * connect - веб сервер
 * imagemin - оптимізація зображень (jpeg, png, gif, svg)
-* livereload - автоматичне оновлення файлів css, js, html при редагуванні. Використовуйте html сніпет для jade
-```script(src="http://127.0.0.1:35729/livereload.js?&extver=2.0.9")```
-* або встановіть [додаток](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-) для вашого веб-переглядача.
+* livereload - автоматичне оновлення файлів css, js, html при редагуванні. Використовуйте html сніпет для jade ```script(src="http://127.0.0.1:35729/livereload.js?&extver=2.0.9")``` або встановіть [додаток](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-) для вашого веб-переглядача.
 
 #Інсталяція (термінал)
 0. Встановіть [nodejs](https://nodejs.org/) та [git](http://git-scm.com/)
