@@ -62,16 +62,24 @@ gulp.task('jade', function() {
 });
 
 gulp.task('connect', function(next) {
-  var connect = require('connect');
-  var server = connect()
-  var static = require('serve-static');
+  var http = require('http');
+  var finalhandler = require('finalhandler');
+  var serveStatic = require('serve-static');
+  
+  // Serve up public folder
+  var serve = serveStatic(paths.dest, { 'index': ['index.html', 'index.htm'] })
+  
+  // Create server
+  var server = http.createServer(function(req, res){
+    var done = finalhandler(req, res)
+    serve(req, res, done)
+  })
 
-  server
-    .use(static(paths.dest))
-    .listen(port, function(){
-      gutil.log('Connect listen on', port);
-      next();
-    });
+  // Listen
+  server.listen(port, function(){
+    gutil.log('http server listen on', port);
+    next();
+  });
 });
 
 gulp.task('mkdirs', function() {
