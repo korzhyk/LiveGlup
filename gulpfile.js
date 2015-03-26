@@ -61,7 +61,7 @@ gulp.task('jade', function() {
     .pipe(livereload());
 });
 
-gulp.task('connect', function(next) {
+gulp.task('connect', ['images', 'bower', 'js', 'css', 'jade'], function(next) {
   var http = require('http');
   var finalhandler = require('finalhandler');
   var serveStatic = require('serve-static');
@@ -98,7 +98,7 @@ gulp.task('watch', ['mkdirs', 'connect'], function() {
   gulp.watch(paths.bower, ['bower']);
 
   livereload.listen();
-  exec("echo 'Opening browser!' & sleep 1 && open http://localhost:" + port);
+  exec("echo 'Opening browser!' && open http://localhost:" + port);
 });
 
-gulp.task('default', ['images', 'bower', 'js', 'css', 'jade', 'watch']);
+gulp.task('default', ['watch']);
