@@ -10,7 +10,7 @@
 * livereload - автоматичне оновлення файлів css, js, html при редагуванні
 
 #Інсталяція (термінал)
-0. Встановіть node з офіційного сайту [nodejs.org](https://nodejs.org/)
+0. Встановіть [nodejs](https://nodejs.org/) та [git](http://git-scm.com/)
 1. Завантажте репозиторій `git clone https://github.com/korzhyk/LiveGlup.git`
 2. Встановіть необхідні модулі `npm i`
 3. Запустіть `gulp`
