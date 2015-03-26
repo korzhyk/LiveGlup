@@ -21,7 +21,7 @@ var paths = {
   js: ['src/js/**/**'],
   images: 'src/images/**/**',
   css: ['src/css/**/*.styl', '!src/css/**/_*.styl'],
-  jade: 'src/*.jade',
+  jade: ['src/**/*.jade', '!src/**/_*.jade'],
   bower: 'src/bower_components/**/**'
 };
 
@@ -90,7 +90,7 @@ gulp.task('watch', ['mkdirs', 'connect'], function() {
   gulp.watch(paths.bower, ['bower']);
 
   livereload.listen();
-  exec('sleep 1 && open http://localhost:' + port);
+  exec("echo 'Opening browser!' & sleep 1 && open http://localhost:" + port);
 });
 
 gulp.task('default', ['images', 'bower', 'js', 'css', 'jade', 'watch']);
