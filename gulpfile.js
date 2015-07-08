@@ -1,6 +1,7 @@
 var fs         = require('fs');
 var path       = require('path');
 var nib        = require('nib');
+var jeet       = require('jeet');
 var gulp       = require('gulp');
 var gutil      = require('gulp-util');
 var coffee     = require('gulp-coffee');
@@ -48,7 +49,7 @@ gulp.task('images', function() {
 gulp.task('css', function () {
   gulp.src(paths.css)
     .pipe(plumber())
-    .pipe(stylus({ use: nib(), import: 'nib' }))
+    .pipe(stylus({ use: [nib(), jeet()], import: ['nib', 'jeet'] }))
     .pipe(gulp.dest(paths.dest + '/css'))
     .pipe(livereload());
 });
